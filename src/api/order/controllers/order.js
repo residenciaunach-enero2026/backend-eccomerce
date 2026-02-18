@@ -3,10 +3,19 @@
 const { createCoreController } = require("@strapi/strapi").factories;
 
 const Stripe = require("stripe");
-const stripe = Stripe(process.env.STRIPE_KEY);
 
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
+    // ✅ Inicializa Stripe dentro del request (y valida la key)
+    const stripeKey = process.env.STRIPE_KEY;
+
+    if (!stripeKey) {
+      ctx.response.status = 500;
+      return { error: "Falta STRIPE_KEY en variables de entorno." };
+    }
+
+    const stripe = new Stripe(stripeKey);
+
     const { products } = ctx.request.body;
 
     try {
