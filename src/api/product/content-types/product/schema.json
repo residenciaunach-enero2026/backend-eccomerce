@@ -38,22 +38,6 @@
     "price": {
       "type": "decimal"
     },
-    "Origin": {
-      "type": "enumeration",
-      "enum": [
-        "Africa",
-        "Asia",
-        "America",
-        "Europa"
-      ]
-    },
-    "Taste": {
-      "type": "enumeration",
-      "enum": [
-        "Sweet ",
-        "Citric"
-      ]
-    },
     "isFeatured": {
       "type": "boolean"
     },
@@ -61,6 +45,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "includes": {
+      "type": "blocks"
+    },
+    "note": {
+      "type": "string"
     }
   }
 }

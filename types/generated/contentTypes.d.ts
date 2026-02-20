@@ -507,6 +507,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    includes: Schema.Attribute.Blocks;
     isFeatured: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -514,14 +515,12 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    Origin: Schema.Attribute.Enumeration<
-      ['Africa', 'Asia', 'America', 'Europa']
-    >;
+    note: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     productName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'productName'>;
-    Taste: Schema.Attribute.Enumeration<['Sweet ', 'Citric']>;
+    Subtitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
