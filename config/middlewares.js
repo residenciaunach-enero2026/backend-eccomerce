@@ -1,15 +1,26 @@
 module.exports = [
-  'strapi::errors',
+  "strapi::errors",
   {
-    name: 'strapi::security',
+    name: "strapi::security",
     config: {
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:'],
-          // Permite cargar imágenes y medios desde Cloudinary y Strapi Marketplace
-          'img-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', 'res.cloudinary.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', 'res.cloudinary.com'],
+          "connect-src": ["'self'", "https:"],
+          "img-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "dl.airtable.com",
+            "https://res.cloudinary.com",
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "dl.airtable.com",
+            "https://res.cloudinary.com",
+          ],
           upgradeInsecureRequests: null,
         },
       },
@@ -19,20 +30,20 @@ module.exports = [
     name: "strapi::cors",
     config: {
       origin: [
+        "http://localhost:3000",
         "https://e-commerce-residencia.vercel.app",
-        "https://e-commerce-residencia.vercel.app", 
-        "http://localhost:3000"
+        /^https:\/\/e-commerce-residencia-.*\.vercel\.app$/,
       ],
       credentials: true,
-      methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
-      headers: ["Content-Type","Authorization","Origin","Accept"],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
     },
   },
-  'strapi::poweredBy',
-  'strapi::logger',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  "strapi::poweredBy",
+  "strapi::logger",
+  "strapi::query",
+  "strapi::body",
+  "strapi::session",
+  "strapi::favicon",
+  "strapi::public",
 ];
