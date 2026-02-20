@@ -1,12 +1,26 @@
 module.exports = [
-  'strapi::errors',    
-  'strapi::security',  
+  'strapi::errors',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          // Permite cargar imágenes y medios desde Cloudinary y Strapi Marketplace
+          'img-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', 'res.cloudinary.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', 'res.cloudinary.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: "strapi::cors",
     config: {
       origin: [
         "https://e-commerce-residencia.vercel.app",
-        "https://e-commerce-residencia.vercel.app/", 
+        "https://e-commerce-residencia.vercel.app", 
         "http://localhost:3000"
       ],
       credentials: true,
