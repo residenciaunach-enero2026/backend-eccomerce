@@ -26,13 +26,24 @@
     },
     "coverImage": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ]
+    },
+    "readTime": {
+      "type": "integer"
+    },
+    "author": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo-metadata",
+      "repeatable": false
     }
   }
 }

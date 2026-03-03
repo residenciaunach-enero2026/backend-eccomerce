@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_variantes",
+  "info": {
+    "displayName": "variante",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "includes": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
